@@ -1,0 +1,531 @@
+
+/* =========================================
+   MODERN MEDICAL ADMIN DASHBOARD
+========================================= */
+
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap');
+
+:root {
+    --primary: #087ea4;
+    --primary-dark: #075b7a;
+    --secondary: #16b8a6;
+    --background: #f0f5fa;
+    --white: #ffffff;
+    --text: #203247;
+    --muted: #8291a5;
+    --border: #e5edf4;
+    --success: #16a36a;
+    --danger: #e05260;
+    --shadow: 0 8px 25px rgba(31, 65, 95, 0.07);
+}
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+html {
+    scroll-behavior: smooth;
+}
+
+body {
+    font-family: 'Inter', Arial, sans-serif;
+    background:
+        radial-gradient(circle at top right, #e0f4fa 0, transparent 30%),
+        var(--background);
+    color: var(--text);
+    min-height: 100vh;
+    line-height: 1.6;
+}
+
+/* SIDEBAR */
+
+.sidebar {
+    width: 260px;
+    height: 100vh;
+    position: fixed;
+    top: 0;
+    left: 0;
+    padding: 30px 18px;
+    background: linear-gradient(160deg, #087ea4, #073b59);
+    z-index: 1000;
+    overflow-y: auto;
+    box-shadow: 5px 0 25px rgba(10, 50, 75, 0.12);
+}
+
+.sidebar h2 {
+    color: white;
+    font-size: 21px;
+    font-weight: 800;
+    text-align: center;
+    letter-spacing: 1px;
+    margin-bottom: 38px;
+}
+
+.sidebar h2::before {
+    content: "✚";
+    display: block;
+    font-size: 35px;
+    margin-bottom: 8px;
+    color: #a5f3ed;
+}
+
+.sidebar a {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    color: #d9edf5;
+    text-decoration: none;
+    padding: 14px 16px;
+    margin-bottom: 9px;
+    border-radius: 12px;
+    font-size: 13px;
+    font-weight: 600;
+    transition: all 0.25s ease;
+}
+
+.sidebar a::before {
+    content: "◆";
+    font-size: 9px;
+    color: #72e5dc;
+}
+
+.sidebar a:hover,
+.sidebar a:focus {
+    background: rgba(255, 255, 255, 0.17);
+    color: white;
+    transform: translateX(5px);
+    box-shadow: inset 3px 0 #65e4dc;
+}
+
+/* MAIN CONTENT */
+
+.main {
+    margin-left: 260px;
+    padding: 38px;
+    width: calc(100% - 260px);
+    min-height: 100vh;
+}
+
+.main h1 {
+    color: #17344d;
+    font-size: 29px;
+    font-weight: 800;
+    margin-bottom: 8px;
+    letter-spacing: -0.7px;
+}
+
+.main > p {
+    color: var(--muted);
+    font-size: 14px;
+    margin-bottom: 28px;
+}
+
+/* STATISTICS */
+
+.container {
+    display: grid;
+    grid-template-columns: repeat(4, minmax(0, 1fr));
+    gap: 22px;
+    margin-top: 30px;
+}
+
+.card {
+    position: relative;
+    overflow: hidden;
+    background: white;
+    padding: 26px 23px;
+    border-radius: 18px;
+    border: 1px solid var(--border);
+    box-shadow: var(--shadow);
+    transition: all 0.3s ease;
+}
+
+.card::after {
+    content: "";
+    position: absolute;
+    width: 100px;
+    height: 100px;
+    border-radius: 50%;
+    background: rgba(8, 126, 164, 0.07);
+    right: -30px;
+    bottom: -40px;
+}
+
+.card:hover {
+    transform: translateY(-7px);
+    box-shadow: 0 15px 35px rgba(31, 65, 95, 0.13);
+}
+
+.card h3 {
+    position: relative;
+    z-index: 1;
+    color: var(--muted);
+    font-size: 13px;
+    font-weight: 600;
+    margin-bottom: 13px;
+}
+
+.card h1 {
+    position: relative;
+    z-index: 1;
+    color: var(--primary);
+    font-size: 36px;
+    font-weight: 800;
+}
+
+/* BUTTONS */
+
+button,
+.btn {
+    display: inline-block;
+    border: none;
+    background: linear-gradient(135deg, var(--primary), var(--primary-dark));
+    color: white;
+    padding: 12px 20px;
+    border-radius: 10px;
+    font-family: inherit;
+    font-size: 13px;
+    font-weight: 700;
+    cursor: pointer;
+    text-decoration: none;
+    transition: all 0.25s ease;
+}
+
+button:hover,
+.btn:hover {
+    transform: translateY(-3px);
+    box-shadow: 0 7px 17px rgba(8, 126, 164, 0.25);
+    background: var(--primary-dark);
+}
+
+.main > a,
+.main a[href*="tambah.php"] {
+    display: inline-block;
+    background: linear-gradient(135deg, #087ea4, #075b7a);
+    color: white;
+    padding: 12px 20px;
+    border-radius: 10px;
+    text-decoration: none;
+    font-size: 13px;
+    font-weight: 700;
+    transition: all 0.25s ease;
+    margin-bottom: 18px;
+}
+
+.main > a:hover,
+.main a[href*="tambah.php"]:hover {
+    transform: translateY(-3px);
+    box-shadow: 0 7px 17px rgba(8, 126, 164, 0.25);
+}
+
+/* TABLE */
+
+
+/* =========================================
+   TABLE - FULL WIDTH MODERN
+========================================= */
+
+table {
+    width: 100% !important;
+    min-width: 100% !important;
+    display: table !important;
+    table-layout: auto;
+    border-collapse: separate;
+    border-spacing: 0;
+    background: #ffffff;
+    font-size: 13px;
+    border-radius: 14px;
+    overflow: hidden;
+    box-shadow: 0 8px 25px rgba(31, 65, 95, 0.07);
+}
+
+table th {
+    background: #eaf5fa;
+    color: #17516b;
+    padding: 18px 20px;
+    font-weight: 700;
+    text-align: left;
+    white-space: nowrap;
+    border-bottom: 2px solid #dcebf2;
+}
+
+table td {
+    padding: 18px 20px;
+    border-bottom: 1px solid #e5edf4;
+    color: #526174;
+    white-space: nowrap;
+}
+
+table tr:nth-child(even) td {
+    background: #f8fbfd;
+}
+
+table tr:hover td {
+    background: #eaf7fb;
+}
+
+table tr:last-child td {
+    border-bottom: none;
+}
+
+table a {
+    color: #087ea4;
+    text-decoration: none;
+    font-weight: 700;
+    margin-right: 7px;
+}
+
+table a:hover {
+    color: #075b7a;
+    text-decoration: underline;
+}
+
+/* TABEL DI HP */
+
+@media (max-width: 768px) {
+    table {
+        display: block !important;
+        width: 100% !important;
+        min-width: 650px !important;
+        overflow-x: auto;
+    }
+
+    table th,
+    table td {
+        padding: 13px 15px;
+    }
+}
+
+
+/* FORM */
+
+form {
+    width: 100%;
+    max-width: 750px;
+    background: white;
+    padding: 32px !important;
+    border-radius: 18px !important;
+    border: 1px solid var(--border);
+    box-shadow: var(--shadow);
+}
+
+label {
+    display: inline-block;
+    color: #34495e;
+    font-size: 13px;
+    font-weight: 700;
+    margin-bottom: 5px;
+}
+
+input,
+select,
+textarea {
+    width: 100%;
+    padding: 13px 15px;
+    margin-top: 7px;
+    margin-bottom: 19px;
+    border: 1px solid #dce5ed;
+    border-radius: 10px;
+    background: #fafdff;
+    color: var(--text);
+    font-family: inherit;
+    font-size: 13px;
+    outline: none;
+    transition: all 0.2s ease;
+}
+
+input:focus,
+select:focus,
+textarea:focus {
+    border-color: var(--primary);
+    background: white;
+    box-shadow: 0 0 0 4px rgba(8, 126, 164, 0.10);
+}
+
+textarea {
+    min-height: 110px;
+    resize: vertical;
+}
+
+form a {
+    color: var(--primary);
+    text-decoration: none;
+    font-size: 13px;
+    font-weight: 700;
+}
+
+/* RESPONSIVE TABLET */
+
+@media (max-width: 1100px) {
+    .container {
+        grid-template-columns: repeat(2, minmax(0, 1fr));
+    }
+
+    .main {
+        padding: 28px;
+    }
+}
+
+/* RESPONSIVE MOBILE */
+
+@media (max-width: 768px) {
+    .sidebar {
+        width: 100%;
+        height: auto;
+        position: relative;
+        padding: 17px 12px;
+        text-align: center;
+    }
+
+    .sidebar h2 {
+        font-size: 19px;
+        margin-bottom: 15px;
+    }
+
+    .sidebar h2::before {
+        font-size: 27px;
+    }
+
+    .sidebar a {
+        display: inline-flex;
+        padding: 10px 12px;
+        margin: 3px;
+        font-size: 11px;
+    }
+
+    .sidebar a:hover {
+        transform: none;
+    }
+
+    .main {
+        margin-left: 0 !important;
+        width: 100% !important;
+        padding: 23px 16px;
+    }
+
+    .main h1 {
+        font-size: 24px;
+    }
+
+    .container {
+        grid-template-columns: repeat(2, minmax(0, 1fr));
+        gap: 13px;
+    }
+
+    .card {
+        padding: 19px 15px;
+    }
+
+    .card h3 {
+        font-size: 11px;
+    }
+
+    .card h1 {
+        font-size: 28px;
+    }
+
+    form {
+        padding: 22px !important;
+    }
+
+    table {
+        min-width: 650px;
+    }
+}
+
+/* SMALL MOBILE */
+
+@media (max-width: 380px) {
+    .container {
+        grid-template-columns: 1fr;
+    }
+
+    .main {
+        padding: 18px 12px;
+    }
+
+    .sidebar a {
+        font-size: 10px;
+        padding: 8px;
+    }
+}
+
+
+/* =========================================
+   KHUSUS TABEL REKAM MEDIS
+   Tidak mengubah tabel Pasien, Dokter, Obat
+========================================= */
+
+.main table.tabel-rekam-medis {
+    width: 100% !important;
+    min-width: 0 !important;
+    max-width: 100% !important;
+    display: table !important;
+    table-layout: fixed !important;
+    font-size: 11px;
+}
+
+.main table.tabel-rekam-medis th,
+.main table.tabel-rekam-medis td {
+    padding: 11px 7px !important;
+    white-space: normal !important;
+    overflow-wrap: break-word;
+    word-break: normal;
+    vertical-align: middle;
+    font-size: 11px;
+}
+
+/* Pembagian lebar untuk 9 kolom */
+.main table.tabel-rekam-medis th:nth-child(1),
+.main table.tabel-rekam-medis td:nth-child(1) { width: 4%; text-align: center; }
+
+.main table.tabel-rekam-medis th:nth-child(2),
+.main table.tabel-rekam-medis td:nth-child(2) { width: 9%; }
+
+.main table.tabel-rekam-medis th:nth-child(3),
+.main table.tabel-rekam-medis td:nth-child(3) { width: 10%; }
+
+.main table.tabel-rekam-medis th:nth-child(4),
+.main table.tabel-rekam-medis td:nth-child(4) { width: 9%; }
+
+.main table.tabel-rekam-medis th:nth-child(5),
+.main table.tabel-rekam-medis td:nth-child(5) { width: 9%; }
+
+.main table.tabel-rekam-medis th:nth-child(6),
+.main table.tabel-rekam-medis td:nth-child(6) { width: 22%; }
+
+.main table.tabel-rekam-medis th:nth-child(7),
+.main table.tabel-rekam-medis td:nth-child(7) { width: 12%; }
+
+.main table.tabel-rekam-medis th:nth-child(8),
+.main table.tabel-rekam-medis td:nth-child(8) { width: 12%; }
+
+.main table.tabel-rekam-medis th:nth-child(9),
+.main table.tabel-rekam-medis td:nth-child(9) {
+    width: 13%;
+    text-align: center;
+}
+
+/* Tautan Edit dan Hapus tetap terlihat dan ringkas */
+.main table.tabel-rekam-medis td:last-child a {
+    display: inline-block !important;
+    visibility: visible !important;
+    opacity: 1 !important;
+    white-space: nowrap !important;
+    font-size: 11px !important;
+    padding: 2px 3px !important;
+    margin: 1px !important;
+}
+
+/* HP: tabel boleh digeser secara horizontal */
+@media (max-width: 768px) {
+    .main table.tabel-rekam-medis {
+        display: block !important;
+        width: 100% !important;
+        min-width: 750px !important;
+        table-layout: auto !important;
+        overflow-x: auto !important;
+    }
+}
